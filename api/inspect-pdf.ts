@@ -31,7 +31,7 @@ export default async function handler(req: any, res: any) {
       buffer = Buffer.from(body.pdfBase64, "base64");
     } else if (body.preset) {
       filename = `${body.preset}.pdf`;
-      const sampleText = "FIRE-PDF INSPECTOR RESEARCH PAPER\nFast Local PDF Parsing and Markdown Conversion without OCR.\nSmart Classification and Position-Aware Extraction.";
+      const sampleText = "FIRE-PDF INSPECTOR RESEARCH PAPER\nFast Local PDF Parsing and Markdown Conversion without OCR.\nFast Classification and Position-Aware Extraction.";
       buffer = Buffer.from(sampleText);
     }
 

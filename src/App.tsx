@@ -86,7 +86,7 @@ export default function App() {
           data = await parsePdfClientSide(file);
         } else if (preset) {
           const sampleBlob = new Blob(
-            [`FIRE-PDF INSPECTOR RESEARCH PAPER\nFast Local PDF Parsing and Markdown Conversion without OCR.\nSmart Classification and Position-Aware Extraction.`],
+            [`FIRE-PDF INSPECTOR RESEARCH PAPER\nFast Local PDF Parsing and Markdown Conversion without OCR.\nFast Classification and Position-Aware Extraction.`],
             { type: "application/pdf" }
           );
           const sampleFile = new File([sampleBlob], `${preset}.pdf`, { type: "application/pdf" });
