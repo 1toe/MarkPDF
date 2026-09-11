@@ -10,7 +10,7 @@ export function Header({ onToggleSidebar }: HeaderProps) {
     <Box as="header" borderBottomWidth="1px" borderColor="gray.200" bg="white" px={{ base: 4, md: 8 }} py={4}>
       <Flex mx="auto" maxW="7xl" align="center" justify="space-between">
         <Flex align="center" gap={3}>
-          {/* Mobile menu toggle — only visible below md */}
+          {/* Mobile menu toggle: only visible below md */}
           <IconButton
             aria-label="Abrir menu de navegacion"
             variant="outline"

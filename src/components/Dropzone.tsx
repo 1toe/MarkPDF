@@ -43,7 +43,7 @@ export function Dropzone({ onInspect, isLoading }: DropzoneProps) {
         onClick={() => fileInputRef.current?.click()}
         role="button"
         tabIndex={0}
-        aria-label="Zona de carga de PDF — haz clic o arrastra un archivo"
+        aria-label="Zona de carga de PDF: haz clic o arrastra un archivo"
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
