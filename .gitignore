@@ -12,3 +12,6 @@ coverage/
 skills-lock.json
 llms.txt
 llms-full.txt
+
+.vercel
+.env*

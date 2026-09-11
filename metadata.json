@@ -1,0 +1,6 @@
+{
+  "name": "PDF Inspector",
+  "description": "Fast PDF classification, text extraction, and Markdown conversion inspired by Firecrawl pdf-inspector",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
