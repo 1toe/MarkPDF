@@ -1,0 +1,14 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Skills / agent context files — never commit these
+.agents/
+skills-lock.json
+llms.txt
+llms-full.txt
