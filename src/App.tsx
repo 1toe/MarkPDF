@@ -86,7 +86,7 @@ export default function App() {
           data = await parsePdfClientSide(file);
         } else if (preset) {
           const sampleBlob = new Blob(
-            [`FIRE-PDF INSPECTOR RESEARCH PAPER\nFast Local PDF Parsing and Markdown Conversion without OCR.\nSmart Classification and Position-Aware Extraction.`],
+            [`FIRE-PDF INSPECTOR RESEARCH PAPER\nFast Local PDF Parsing and Markdown Conversion without OCR.\nFast Classification and Position-Aware Extraction.`],
             { type: "application/pdf" }
           );
           const sampleFile = new File([sampleBlob], `${preset}.pdf`, { type: "application/pdf" });
@@ -193,6 +193,29 @@ export default function App() {
               />
             </Suspense>
           )}
+        </Box>
+
+        <Box as="footer" borderTopWidth="1px" borderColor="gray.200" bg="white" py={4} px={{ base: 4, md: 8 }} mt="auto">
+          <Flex mx="auto" maxW="6xl" justify="space-between" align="center" direction={{ base: "column", sm: "row" }} gap={2} fontSize="xs" color="gray.600">
+            <Text>
+              MarkPDF &copy; {new Date().getFullYear()} · Todos los derechos reservados.
+            </Text>
+            <Text>
+              Extracción y clasificación basada en{" "}
+              <Box
+                as="a"
+                href="https://github.com/mendableai/firecrawl"
+                target="_blank"
+                rel="noopener noreferrer"
+                color="orange.600"
+                fontWeight="semibold"
+                _hover={{ textDecoration: "underline" }}
+              >
+                Firecrawl pdf-inspector
+              </Box>{" "}
+              (Licencia Apache-2.0).
+            </Text>
+          </Flex>
         </Box>
       </Box>
     </Flex>

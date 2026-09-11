@@ -4,29 +4,7 @@ import multer from "multer";
 import { createServer as createViteServer } from "vite";
 import { processPdf, extractText } from "@firecrawl/pdf-inspector";
 import * as pdfParseMod from "pdf-parse";
-import { GoogleGenAI } from "@google/genai";
-
 const pdfParse = (pdfParseMod as any).default || pdfParseMod;
-
-let aiClient: GoogleGenAI | null = null;
-
-function getAiClient(): GoogleGenAI {
-  if (!aiClient) {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-      throw new Error("GEMINI_API_KEY environment variable is required.");
-    }
-    aiClient = new GoogleGenAI({
-      apiKey,
-      httpOptions: {
-        headers: {
-          "User-Agent": "aistudio-build",
-        },
-      },
-    });
-  }
-  return aiClient;
-}
 
 const app = express();
 const PORT = 3000;
@@ -170,25 +148,6 @@ app.post("/api/inspect-pdf", upload.single("pdf"), async (req, res) => {
   }
 });
 
-app.post("/api/ai-analyze", async (req, res) => {
-  try {
-    const { text, prompt } = req.body;
-    if (!text && !prompt) {
-      return res.status(400).json({ error: "Se requiere texto o una pregunta para el análisis." });
-    }
-
-    const ai = getAiClient();
-    const response = await ai.models.generateContent({
-      model: "gemini-3.7-flash",
-      contents: `Contexto del documento PDF:\n\n${(text || "").slice(0, 45000)}\n\nPregunta / Instrucción del usuario: ${prompt || "Resume este documento y resalta los puntos clave."}`,
-    });
-
-    res.json({ analysis: response.text || "No se pudo generar un análisis." });
-  } catch (err: any) {
-    console.error("AI analyze error:", err);
-    res.status(500).json({ error: err.message || "Error al procesar la solicitud con Gemini AI." });
-  }
-});
 
 async function startServer() {
   if (process.env.NODE_ENV !== "production") {

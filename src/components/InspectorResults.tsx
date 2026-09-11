@@ -36,7 +36,7 @@ interface ParsedTable {
   rows: string[][];
 }
 
-// Module-level pure function — not re-created on every render (rerender-no-inline-components)
+// Module-level pure function: not re-created on every render (rerender-no-inline-components)
 function extractMarkdownTables(markdown: string): ParsedTable[] {
   const tables: ParsedTable[] = [];
   const lines = markdown.split("\n");
@@ -96,7 +96,7 @@ export function InspectorResults({ result, onReset }: InspectorResultsProps) {
   const [copied, setCopied] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
-  // Derived — no extra state needed (rerender-derived-state-no-effect)
+  // Derived: no extra state needed (rerender-derived-state-no-effect)
   const tables = extractMarkdownTables(result.markdown || "");
 
   const handleCopyMarkdown = () => {
@@ -627,7 +627,7 @@ export function InspectorResults({ result, onReset }: InspectorResultsProps) {
                   Resumen del Documento
                 </Text>
                 <Text fontSize="xs" color="gray.500">
-                  Metricas y estadisticas generales del PDF analizado
+                  Metricas y clasificacion procesadas con Firecrawl pdf-inspector
                 </Text>
               </Box>
             </Flex>

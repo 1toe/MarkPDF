@@ -200,6 +200,24 @@ export function Sidebar({ currentId, onSelect, onNew, isOpen, setIsOpen }: Sideb
             </Flex>
           )}
         </Box>
+
+        {/* Attribution footer */}
+        <Box p={3} borderTopWidth="1px" borderColor="gray.200" bg="gray.50">
+          <Text fontSize="xs" color="gray.500" textAlign="center">
+            Motor:{" "}
+            <Box
+              as="a"
+              href="https://github.com/mendableai/firecrawl"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="orange.600"
+              fontWeight="semibold"
+              _hover={{ textDecoration: "underline" }}
+            >
+              Firecrawl pdf-inspector
+            </Box>
+          </Text>
+        </Box>
       </Box>
     </>
   );

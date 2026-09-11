@@ -226,7 +226,7 @@ function renderTableMarkdown(rows: string[][]): string {
   const bodyRows = rows.slice(1).map((r) => {
     const cells = [...r];
     while (cells.length < maxCols) {
-      cells.push("—");
+      cells.push("-");
     }
     return `| ${cells.join(" | ")} |`;
   });
